@@ -1,0 +1,67 @@
+﻿@using Ecommerce.data;
+@using Ecommerce.Models;
+@model AdminIndexViewModel
+
+<a href="/Admin/AddCategory" class="btn btn-primary">Add Category</a>
+<a href="/Admin/AddProduct" class="btn btn-primary">Add Product</a>
+
+<div style="border:20px"><h2 style="text-align:center">Pending Orders</h2></div>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Order Id</th>
+        <th>Customer Id</th>
+        <th>Date Ordered</th>
+        <th>Total Paid</th>
+        <th>Details</th>
+    </tr>
+    @foreach(Order o in Model.PendingOrders)
+    {
+        <tr>
+            <td>@o.OrderId</td>
+            <td>@o.CustomerId</td>
+            <td>@o.Date</td>
+            <td>@o.TotalPaid.ToString("C")</td>
+            <td><a href="/Admin/OrderDetails?orderId=@o.OrderId" class="btn btn-primary">Details</a></td>
+        </tr>
+    }
+</table>
+<div style="border:20px"><h2 style="text-align:center">Processed Orders</h2></div>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Order Id</th>
+        <th>Customer Id</th>
+        <th>Date Ordered</th>
+        <th>Total Paid</th>
+        <th>Details</th>
+    </tr>
+    @foreach (Order o in Model.ProcessedOrders)
+    {
+        <tr>
+            <td>@o.OrderId</td>
+            <td>@o.CustomerId</td>
+            <td>@o.Date</td>
+            <td>@o.TotalPaid.ToString("C")</td>
+            <td><a href="/Admin/OrderDetails?orderId=@o.OrderId" class="btn btn-primary">Details</a></td>
+        </tr>
+    }
+</table>
+<div style="border:20px"><h2 style="text-align:center">Out for Delivery Orders</h2></div>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Order Id</th>
+        <th>Customer Id</th>
+        <th>Date Ordered</th>
+        <th>Total Paid</th>
+        <th>Details</th>
+    </tr>
+    @foreach (Order o in Model.OutForDeliveryOrders)
+    {
+        <tr>
+            <td>@o.OrderId</td>
+            <td>@o.CustomerId</td>
+            <td>@o.Date</td>
+            <td>@o.TotalPaid.ToString("C")</td>
+            <td><a href="/Admin/OrderDetails?orderId=@o.OrderId" class="btn btn-primary">Details</a></td>
+        </tr>
+    }
+</table>

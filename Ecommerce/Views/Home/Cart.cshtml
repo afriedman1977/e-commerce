@@ -1,0 +1,79 @@
+﻿@using Ecommerce.data;
+@using Ecommerce.Models;
+@model CartViewModel
+
+@if(Model.Customer != null)
+{
+    <div style="text-align:center"><h3>Please Review All Info Then Click Place Your Order</h3></div>
+    <div style="margin:20px">
+        <h4>@Model.Customer.FirstName @Model.Customer.LastName</h4>
+        <h4>@Model.Customer.Address</h4>
+        <h4>@Model.Customer.PhoneNumber</h4>
+        <h4>@Model.Customer.EmailAddress</h4>
+        <a href="/Home/Checkout">Edit</a>
+    </div>
+}
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Product Name</th>
+        <th>Price Per Unit</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
+    @foreach (CartModel cm in Model.ProductsInCart)
+    {
+        <tr>
+            <td>@cm.CartItem.Product.ProductName</td>
+            <td>@cm.CartItem.Product.Price.ToString("C")</td>            
+            <td>
+                <form method="POST" action="/Home/UpdateShoppingCartItem">
+                    <input type="hidden" name="Id" value="@cm.CartItem.Id" />
+                    <select class="item-quantity" name="Quantity">
+                        @for (int x = 0; x <= 20; x++)
+                        {
+                            if (x == cm.CartItem.Quantity)
+                            {
+                                <option value="@x" selected>@x</option>
+                            }
+                            else if (x == 0)
+                            {
+                                <option value="@x">@x (delete item)</option>
+                            }
+                            else
+                            {
+                                <option value="@x">@x</option>
+                            }
+                        }
+                    </select>
+                </form>
+            </td>
+            <td>@cm.TotalPerItem.ToString("C")</td>
+        </tr>
+    }
+</table>
+<div style="text-align:center">
+    <h4>Total Owed is @Model.TotalForCart.ToString("C")</h4>
+</div>
+@if (Model.Customer == null)
+{
+    <a href="/Home/Checkout" class="btn btn-primary">Check Out</a>
+}
+@if (Model.Customer != null)
+{
+    <form method="POST" action="/Home/PlaceOrder">
+        <input type="hidden" name="CustomerId" value="@Model.Customer.Id" />
+        <input type="hidden" name="Date" value="@DateTime.Now" />
+        <input type="hidden" name="TotalPaid" value="@Model.TotalForCart" />
+        @for (int x = 0; x < Model.ProductsInCart.Count; x++)
+        {
+            <input type="hidden" name="details[@x].ProductName" value="@Model.ProductsInCart[x].CartItem.Product.ProductName" />
+            <input type="hidden" name="details[@x].PricePaid" value="@Model.ProductsInCart[x].CartItem.Product.Price" />
+            <input type="hidden" name="details[@x].Quantity" value="@Model.ProductsInCart[x].CartItem.Quantity" />
+        }
+        <button class="btn btn-success">Place Your Order</button>
+    </form>
+}
+
+@section scripts{
+    <script src="~/Scripts/Cart.js"></script>
+}

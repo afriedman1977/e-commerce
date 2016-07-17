@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce", "Ecommerce\Ecommerce.csproj", "{46D87304-70DF-435A-83B7-D511B7DDF5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.data", "Ecommerce.data\Ecommerce.data.csproj", "{349BEFFA-211F-4DCE-9CA5-365E1BCCF944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateAdministrator", "CreateAdministrator\CreateAdministrator.csproj", "{38853696-3399-4D0F-8E09-0D5D655ECACC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46D87304-70DF-435A-83B7-D511B7DDF5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D87304-70DF-435A-83B7-D511B7DDF5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D87304-70DF-435A-83B7-D511B7DDF5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D87304-70DF-435A-83B7-D511B7DDF5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349BEFFA-211F-4DCE-9CA5-365E1BCCF944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349BEFFA-211F-4DCE-9CA5-365E1BCCF944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349BEFFA-211F-4DCE-9CA5-365E1BCCF944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349BEFFA-211F-4DCE-9CA5-365E1BCCF944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38853696-3399-4D0F-8E09-0D5D655ECACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38853696-3399-4D0F-8E09-0D5D655ECACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38853696-3399-4D0F-8E09-0D5D655ECACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38853696-3399-4D0F-8E09-0D5D655ECACC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

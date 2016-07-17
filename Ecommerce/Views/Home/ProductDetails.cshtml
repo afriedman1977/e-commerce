@@ -1,0 +1,119 @@
+﻿@using Ecommerce.data;
+@using Ecommerce.Models;
+@model ProductDetailsViewModel
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-8" id="message">
+               
+            </div>
+
+        <div class="col-md-9">
+
+            <div class="thumbnail">
+                <img class="img-responsive" src="~/Images/@Model.Product.Images[0].ImagePath" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">@Model.Product.Price.ToString("C")</h4>
+                    <h4>
+                        <a href="#">@Model.Product.ProductName</a>
+                    </h4>
+                    <p>@Model.Product.Description</p>
+                </div>
+                
+                <div class="row form-inline">
+                    <div class="col-md-offset-5">
+                        
+                            <div class="form-group">
+                                <input type="hidden" id="product-id" value="@Model.Product.Id" />
+                                <button class="btn btn-success" id="submit">Add To Cart</button>
+                            </div>
+                            <div class="form-group">
+                                <label for="Quantity">Quantity</label>
+                                <select id="quantity">
+                                    @for (int x = 1; x <= 10; x++)
+                                    {
+                                        <option value="@x">@x</option>
+                                    }
+                                </select>
+                            </div>
+                       
+                    </div>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">3 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        4.0 stars
+                    </p>
+                </div>
+            </div>
+
+            <div class="well">
+
+                <div class="text-right">
+                    <a class="btn btn-success">Leave a Review</a>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">10 days ago</span>
+                        <p>This product was great in terms of quality. I would definitely buy another!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">12 days ago</span>
+                        <p>I've alredy ordered another one!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">15 days ago</span>
+                        <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+@section scripts{
+<script src="~/Scripts/ProductDetails.js"></script>
+}

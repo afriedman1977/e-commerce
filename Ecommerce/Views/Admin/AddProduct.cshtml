@@ -1,0 +1,47 @@
+﻿@using Ecommerce.data;
+@using Ecommerce.Models;
+@model AddProductViewModel
+
+<div class="well" style="width:800px; margin-left:200px">
+    <div style="text-align:center"><h2>Enter Product Information</h2></div>
+    <hr />
+    <form method="POST" action="/Admin/AddProduct" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="CategoryId">Choose Category</label>
+            <select name="CategoryId">
+                @foreach (Category c in Model.AllCategories)
+                {
+                    <option class="form-control" value="@c.Id">@c.CategoryName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ProductName">Product Name</label>
+            <input type="text" class="form-control" name="ProductName" placeholder="Product Name">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" name="Price" placeholder="$0.00">
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea class="form-control" name="Description" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group ">
+            <div id="add-image">
+                <label for="Image">Image</label>
+                <input type="file" class="form-control" name="imageFiles[0]" id="image-files-1">
+            </div>
+            <button type="button" class="btn btn-success" style="margin-top:10px">Add Another Image</button>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AddProduct.js"></script>
+}
